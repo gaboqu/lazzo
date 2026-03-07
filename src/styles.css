@@ -1,1 +1,14 @@
-/* You can add global styles to this file, and also import other style files */
+
+:root {
+  --color-accent: #c08256;
+  --color-bg: #f5f0eb;
+  --color-dark: #1a1a1a;
+  --font-title: 'Playfair Display', serif;
+  --font-body: 'Lato', sans-serif;
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--color-bg);
+  margin: 0;
+}
