@@ -6,8 +6,10 @@
   padding: 24px;
   min-height: calc(100vh - 65px);
   background-color: #f2f2f2;
+  align-items: start;
+  max-width: 1400px;
+  margin: 0 auto;
 }
-
 .sidebar-left {
   grid-area: sidebar-left;
 }
