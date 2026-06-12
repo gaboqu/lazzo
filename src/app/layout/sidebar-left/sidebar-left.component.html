@@ -7,7 +7,14 @@
       class="profile-photo" 
     />
   </div>
+
+
 <h3 class="profile-name" *ngIf="modo === 'home'">Silvina Ocampo</h3>
+
+  <a class="matches-heart" routerLink="/matches" title="Mis matches" *ngIf="modo === 'home'">
+    <i class="bi bi-heart-fill"></i>
+    <span>Mis matches</span>
+  </a>
   <!-- ===== MODO HOME (Silvina) ===== -->
   <ng-container *ngIf="modo === 'home'">
     <div class="profile-section">
