@@ -1,35 +1,39 @@
 <div class="sidebar-right-container">
 
-  <div class="tools-section">
-    <p class="section-title">Herramientas para construir relaciones sanas</p>
+ <ng-container *ngIf="modo === 'home'">
+    <div class="tools-section">
+      <p class="section-title">Herramientas para construir relaciones sanas</p>
 
-    <div class="video-wrapper">
-      <img 
-        src="assets/images/video-thumb.png"
-        srcset="assets/images/video-thumb.png 1x, assets/images/video-thumb@2x.png 2x"
-        alt="Video"
-        class="video-thumb"
-      />
-      <div class="play-btn">
-        <i class="bi bi-play-fill"></i>
+      <div class="video-wrapper">
+        <img 
+          src="assets/images/video-thumb.png"
+          srcset="assets/images/video-thumb.png 1x, assets/images/video-thumb@2x.png 2x"
+          alt="Video"
+          class="video-thumb"
+        />
+        <div class="play-btn">
+          <i class="bi bi-play-fill"></i>
+        </div>
+      </div>
+
+      <div class="tool-item">
+        <i class="bi bi-camera-video tool-icon"></i>
+        <span>¿Cómo hablar de tus emociones?</span>
+      </div>
+
+      <div class="tool-item">
+        <i class="bi bi-envelope tool-icon"></i>
+        <span>5 claves para una cita exitosa</span>
+      </div>
+
+      <div class="tool-item">
+        <i class="bi bi-journal-text tool-icon"></i>
+        <span>¿Cómo saber si es amor o costumbre?</span>
       </div>
     </div>
 
-    <div class="tool-item">
-      <i class="bi bi-camera-video tool-icon"></i>
-      <span>¿Cómo hablar de tus emociones?</span>
-    </div>
-
-    <div class="tool-item">
-      <i class="bi bi-envelope tool-icon"></i>
-      <span>5 claves para una cita exitosa</span>
-    </div>
-
-    <div class="tool-item">
-      <i class="bi bi-journal-text tool-icon"></i>
-      <span>¿Cómo saber si es amor o costumbre?</span>
-    </div>
-  </div>
+    <hr class="section-divider" />
+  </ng-container>
 
   <hr class="section-divider" />
 
