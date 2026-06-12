@@ -105,3 +105,27 @@
   color: #1a1a1a;
   margin-bottom: 8px;
 }
+
+.section-label-bold {
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: 0.95rem;
+  color: #1a1a1a;
+  margin-bottom: 2px;
+}
+
+.section-value {
+  font-family: var(--font-body);
+  font-weight: 400;
+  font-size: 0.95rem;
+  color: #444;
+  margin: 0;
+}
+
+.profile-bio {
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  color: #444;
+  font-style: italic;
+  margin: 0;
+}

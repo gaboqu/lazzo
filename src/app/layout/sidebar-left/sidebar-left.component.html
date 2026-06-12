@@ -1,43 +1,83 @@
 <div class="sidebar-left-container">
 
-  <div class="profile-photo-wrapper">
+<div class="profile-photo-wrapper">
     <img 
-      src="assets/images/avatar-placeholder.png" 
-      srcset="assets/images/avatar-placeholder.png 1x, assets/images/avatar-placeholder@2x.png 2x"
+      [src]="modo === 'perfil' ? 'assets/images/foto_perfil1.jpg' : 'assets/images/avatar-placeholder.png'"
       alt="Foto de perfil" 
       class="profile-photo" 
     />
   </div>
-
-  <h3 class="profile-name">Silvina Ocampo</h3>
-
-  <div class="profile-section">
-    <p class="section-label">Tu estado actual es:</p>
-    <p class="section-status">Buscando una relación con propósito</p>
-  </div>
-
-  <a href="#" class="modify-link">¿Deseás modificarlo?</a>
-
-  <hr class="section-divider" />
-
-  <div class="profile-section">
-    <p class="activity-title">Actividad reciente</p>
-
-    <div class="activity-item">
-      <i class="bi bi-eye activity-icon"></i>
-      <p class="activity-text"><strong>2 personas visitaron hoy tu perfil.</strong></p>
+<h3 class="profile-name" *ngIf="modo === 'home'">Silvina Ocampo</h3>
+  <!-- ===== MODO HOME (Silvina) ===== -->
+  <ng-container *ngIf="modo === 'home'">
+    <div class="profile-section">
+      <p class="section-label">Tu estado actual es:</p>
+      <p class="section-status">Buscando una relación con propósito</p>
     </div>
 
-    <div class="activity-item">
-      <i class="bi bi-envelope activity-icon"></i>
-      <p class="activity-text"><strong>Recibiste un mensaje nuevo de Tomás.</strong></p>
+    <a href="#" class="modify-link">¿Deseás modificarlo?</a>
+
+    <hr class="section-divider" />
+
+    <div class="profile-section">
+      <p class="activity-title">Actividad reciente</p>
+
+      <div class="activity-item">
+        <i class="bi bi-eye activity-icon"></i>
+        <p class="activity-text"><strong>2 personas visitaron hoy tu perfil.</strong></p>
+      </div>
+
+      <div class="activity-item">
+        <i class="bi bi-envelope activity-icon"></i>
+        <p class="activity-text"><strong>Recibiste un mensaje nuevo de Tomás.</strong></p>
+      </div>
+
+      <div class="activity-item">
+        <i class="bi bi-camera-video activity-icon"></i>
+        <p class="activity-text"><strong>Nuevo video:</strong> "Cómo empezar a confiar otra vez"</p>
+      </div>
+    </div>
+  </ng-container>
+
+  <!-- ===== MODO PERFIL (Juan) ===== -->
+  <ng-container *ngIf="modo === 'perfil'">
+    <div class="profile-section">
+      <p class="section-label">Acerca de mi</p>
+      <p class="profile-bio">
+        <em>Soy una persona amable y trabajadora que valora las relaciones significativas. En mi tiempo libre, disfruto explorando museos, viajando y haciendo senderismo.</em>
+      </p>
     </div>
 
-    <div class="activity-item">
-      <i class="bi bi-camera-video activity-icon"></i>
-      <p class="activity-text"><strong>Nuevo video:</strong> "Cómo empezar a confiar otra vez"</p>
+    <hr class="section-divider" />
+
+    <div class="profile-section">
+      <p class="section-label-bold">Nivel académico</p>
+      <p class="section-value">Universitario</p>
     </div>
 
-  </div>
+    <hr class="section-divider" />
+
+    <div class="profile-section">
+      <p class="section-label-bold">Profesión</p>
+      <p class="section-value">Ing. de software</p>
+    </div>
+
+    <hr class="section-divider" />
+
+    <div class="profile-section">
+      <p class="section-label-bold">Hobbés</p>
+      <p class="section-value">Arte, lectura, senderismo</p>
+    </div>
+
+    <hr class="section-divider" />
+
+    <div class="profile-section">
+      <p class="section-label-bold">Valores</p>
+      <p class="section-value">Honestidad</p>
+      <p class="section-value">Responsabilidad</p>
+    </div>
+
+    <a href="#" class="modify-link">¿Deseás modificarlo?</a>
+  </ng-container>
 
 </div>
