@@ -1,1 +1,127 @@
-<p>perfil works!</p>
+<div class="perfil-container">
+
+  <div class="perfil-header-card">
+    <div class="perfil-header-info">
+      <h1 class="perfil-name">Juan Caparros</h1>
+      <p class="perfil-status">
+        <i class="bi bi-heart-fill"></i>
+        <strong>Soltero ~ 36 años</strong>
+      </p>
+      <p class="perfil-location">Castelar, Buenos Aires</p>
+
+      <button class="btn-ver-fotos" (click)="abrirLightbox(0)">
+          <i class="bi bi-images"></i> Ver fotos
+        </button>
+        <button class="btn-enviar-mensaje">
+          <i class="bi bi-chat-square-text"></i> Enviar mensaje
+        </button>
+      </div>
+
+      <div class="perfil-gallery">
+        <div class="gallery-thumb" *ngFor="let foto of fotos; let i = index" (click)="abrirLightbox(i)">
+          <img [src]="foto" alt="Foto de Juan" />
+        </div>
+      </div>
+
+  <div class="perfil-detail-card">
+
+    <div class="compatibility-section">
+      <h3 class="section-heading">Compatibilidad emocial</h3>
+      <p class="compatibility-intro">Tu nivel de compatibilidad emocional con Juan es de <span class="accent">78%</span></p>
+
+      <div class="compat-bar-item">
+        <span class="compat-label">Comunicación</span>
+        <div class="compat-bar-track">
+          <div class="compat-bar-fill" style="width: 80%;"></div>
+        </div>
+        <span class="compat-value">80%</span>
+      </div>
+
+      <div class="compat-bar-item">
+        <span class="compat-label">Apego emocional</span>
+        <div class="compat-bar-track">
+          <div class="compat-bar-fill" style="width: 75%;"></div>
+        </div>
+        <span class="compat-value">75%</span>
+      </div>
+
+      <div class="compat-bar-item">
+        <span class="compat-label">Valores personales</span>
+        <div class="compat-bar-track">
+          <div class="compat-bar-fill" style="width: 70%;"></div>
+        </div>
+        <span class="compat-value">70%</span>
+      </div>
+
+      <div class="compat-bar-item">
+        <span class="compat-label">Estilo de vida</span>
+        <div class="compat-bar-track">
+          <div class="compat-bar-fill" style="width: 90%;"></div>
+        </div>
+        <span class="compat-value">90%</span>
+      </div>
+    </div>
+
+    <hr class="detail-divider" />
+
+    <div class="habits-section">
+      <h3 class="section-heading">Habitos</h3>
+      <div class="habits-list">
+        <div class="habit-item">
+          <i class="bi bi-slash-circle"></i>
+          <span>No fumo</span>
+        </div>
+        <div class="habit-item">
+          <i class="bi bi-cup-straw"></i>
+          <span>Alcohol exporadico</span>
+        </div>
+        <div class="habit-item">
+          <i class="bi bi-controller"></i>
+          <span>Gamming experto</span>
+        </div>
+      </div>
+    </div>
+
+    <hr class="detail-divider" />
+
+    <div class="interests-section">
+      <h3 class="section-heading">Intereses comunes</h3>
+      <div class="interests-list">
+        <div class="interest-item">
+          <i class="bi bi-check2-square"></i>
+          <span>Arte</span>
+        </div>
+        <div class="interest-item">
+          <i class="bi bi-check2-square"></i>
+          <span>Viajes</span>
+        </div>
+        <div class="interest-item">
+          <i class="bi bi-check2-square"></i>
+          <span>Senderismo</span>
+        </div>
+      </div>
+</div>
+
+  </div>
+
+  <div class="lightbox-overlay" *ngIf="lightboxAbierto" (click)="cerrarLightbox()">
+    <div class="lightbox-content" (click)="$event.stopPropagation()">
+
+      <button class="lightbox-close" (click)="cerrarLightbox()">
+        <i class="bi bi-x-lg"></i>
+      </button>
+
+      <button class="lightbox-arrow lightbox-prev" (click)="fotoAnterior()">
+        <i class="bi bi-chevron-left"></i>
+      </button>
+
+      <img [src]="fotos[fotoActual]" alt="Foto de Juan" class="lightbox-img" />
+
+      <button class="lightbox-arrow lightbox-next" (click)="fotoSiguiente()">
+        <i class="bi bi-chevron-right"></i>
+      </button>
+
+    </div>
+  </div>
+
+</div>
