@@ -3,6 +3,12 @@ import { CommonModule } from '@angular/common';
 import { Router, NavigationEnd, RouterLink } from '@angular/router';
 import { filter } from 'rxjs/operators';
 
+interface Conversacion {
+  nombre: string;
+  foto: string;
+  ultimoMensaje: string;
+}
+
 @Component({
   selector: 'app-sidebar-left',
   standalone: true,
@@ -12,14 +18,18 @@ import { filter } from 'rxjs/operators';
 })
 export class SidebarLeftComponent {
 
-  // Modo actual del sidebar: 'home' o 'perfil'
-  modo: 'home' | 'perfil' = 'home';
+  // Modo actual del sidebar: 'home', 'perfil' o 'mensajes'
+  modo: 'home' | 'perfil' | 'mensajes' = 'home';
+
+  conversaciones: Conversacion[] = [
+    { nombre: 'Juan Caparros', foto: 'assets/images/foto_perfil1.jpg', ultimoMensaje: 'Hola! ¿Cómo estás?' },
+    { nombre: 'Pablo Tawer', foto: 'assets/images/foto_perfil1.jpg', ultimoMensaje: 'Me encantó tu perfil' },
+    { nombre: 'Esteban Quiroz', foto: 'assets/images/foto_perfil1.jpg', ultimoMensaje: '¿Tomamos un café?' }
+  ];
 
   constructor(private router: Router) {
-    // Detectamos el modo al iniciar
     this.actualizarModo(this.router.url);
 
-    // Y cada vez que cambia la ruta
     this.router.events
       .pipe(filter(event => event instanceof NavigationEnd))
       .subscribe((event: any) => {
@@ -30,6 +40,8 @@ export class SidebarLeftComponent {
   private actualizarModo(url: string): void {
     if (url.startsWith('/perfil')) {
       this.modo = 'perfil';
+    } else if (url.startsWith('/mensajes')) {
+      this.modo = 'mensajes';
     } else {
       this.modo = 'home';
     }

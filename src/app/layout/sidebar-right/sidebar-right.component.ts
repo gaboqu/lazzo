@@ -24,8 +24,8 @@ export class SidebarRightComponent {
       });
   }
 
-  private actualizarModo(url: string): void {
-    if (url.startsWith('/perfil')) {
+private actualizarModo(url: string): void {
+    if (url.startsWith('/perfil') || url.startsWith('/mensajes') || url.startsWith('/matches')) {
       this.modo = 'perfil';
     } else {
       this.modo = 'home';

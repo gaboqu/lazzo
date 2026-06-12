@@ -24,4 +24,5 @@ export class MatchesComponent {
     { nombre: 'Diego Funes', edad: 45, foto: 'assets/images/foto_perfil1.jpg' },
     { nombre: 'Lucas Vera', edad: 29, foto: 'assets/images/foto_perfil1.jpg' }
   ];
+  
 }

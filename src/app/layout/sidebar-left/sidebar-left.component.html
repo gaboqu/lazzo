@@ -9,7 +9,7 @@
   </div>
 
 
-<h3 class="profile-name" *ngIf="modo === 'home'">Silvina Ocampo</h3>
+<h3 class="profile-name" *ngIf="modo === 'home' || modo === 'mensajes'">Silvina Ocampo</h3>
 
   <a class="matches-heart" routerLink="/matches" title="Mis matches" *ngIf="modo === 'home'">
     <i class="bi bi-heart-fill"></i>
@@ -86,5 +86,22 @@
 
     <a href="#" class="modify-link">¿Deseás modificarlo?</a>
   </ng-container>
+
+  <!-- ===== MODO MENSAJES ===== -->
+  <ng-container *ngIf="modo === 'mensajes'">
+    <div class="conversations-list">
+      <p class="activity-title">Conversaciones</p>
+
+      <div class="conversation-item" *ngFor="let conv of conversaciones">
+        <div class="conversation-photo">
+          <img [src]="conv.foto" [alt]="conv.nombre" />
+        </div>
+        <div class="conversation-info">
+          <p class="conversation-name">{{ conv.nombre }}</p>
+          <p class="conversation-last">{{ conv.ultimoMensaje }}</p>
+        </div>
+      </div>
+    </div>
+  </ng-container> 
 
 </div>
