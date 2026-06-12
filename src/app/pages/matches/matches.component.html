@@ -1,1 +1,21 @@
-<p>matches works!</p>
+<div class="matches-container">
+
+  <h1 class="matches-title">Mis matches</h1>
+  <p class="matches-subtitle">Personas con las que conectaste</p>
+
+  <div class="matches-grid">
+
+    <div class="match-card" *ngFor="let match of matches">
+      <div class="match-photo-wrapper">
+        <img [src]="match.foto" [alt]="match.nombre" class="match-photo" />
+      </div>
+      <h4 class="match-name">{{ match.nombre }}</h4>
+      <p class="match-age">{{ match.edad }} años</p>
+      <button class="btn-mensaje">
+        <i class="bi bi-chat-square-text"></i> Enviar mensaje
+      </button>
+    </div>
+
+  </div>
+
+</div>
