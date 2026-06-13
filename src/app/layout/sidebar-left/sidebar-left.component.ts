@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Router, NavigationEnd, RouterLink } from '@angular/router';
 import { filter } from 'rxjs/operators';
+import { ChatService } from '../../services/chat.service';
 
 interface Conversacion {
   nombre: string;
@@ -18,7 +19,6 @@ interface Conversacion {
 })
 export class SidebarLeftComponent {
 
-  // Modo actual del sidebar: 'home', 'perfil' o 'mensajes'
   modo: 'home' | 'perfil' | 'mensajes' = 'home';
 
   conversaciones: Conversacion[] = [
@@ -27,7 +27,7 @@ export class SidebarLeftComponent {
     { nombre: 'Esteban Quiroz', foto: 'assets/images/foto_perfil1.jpg', ultimoMensaje: '¿Tomamos un café?' }
   ];
 
-  constructor(private router: Router) {
+  constructor(private router: Router, private chatService: ChatService) {
     this.actualizarModo(this.router.url);
 
     this.router.events
@@ -45,5 +45,9 @@ export class SidebarLeftComponent {
     } else {
       this.modo = 'home';
     }
+  }
+
+  seleccionarConversacion(conv: Conversacion): void {
+    this.chatService.seleccionarContacto({ nombre: conv.nombre, foto: conv.foto });
   }
 }

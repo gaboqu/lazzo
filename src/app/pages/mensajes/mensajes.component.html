@@ -1,33 +1,44 @@
 <div class="chat-container">
 
-  <div class="chat-header">
-    <div class="chat-header-photo">
-      <img [src]="contactoFoto" [alt]="contactoNombre" />
-    </div>
-    <h3 class="chat-header-name">{{ contactoNombre }}</h3>
+  <!-- ===== Estado vacío ===== -->
+  <div class="chat-empty" *ngIf="!contactoSeleccionado">
+    <i class="bi bi-chat-square-heart"></i>
+    <p>Seleccioná una conversación para empezar</p>
   </div>
 
-  <div class="chat-body" #chatBody>
-    <div 
-      class="chat-bubble" 
-      *ngFor="let msg of mensajes"
-      [ngClass]="msg.propio ? 'bubble-propio' : 'bubble-otro'"
-    >
-      {{ msg.texto }}
-    </div>
-  </div>
+  <!-- ===== Chat activo ===== -->
+  <ng-container *ngIf="contactoSeleccionado">
 
-  <div class="chat-footer">
-    <input 
-      type="text" 
-      class="chat-input" 
-      placeholder="Escribí un mensaje..." 
-      [(ngModel)]="nuevoMensaje"
-      (keyup.enter)="enviarMensaje()"
-    />
-    <button class="chat-send-btn" (click)="enviarMensaje()">
-      <i class="bi bi-send-fill"></i>
-    </button>
-  </div>
+    <div class="chat-header">
+      <div class="chat-header-photo">
+        <img [src]="contactoSeleccionado.foto" [alt]="contactoSeleccionado.nombre" />
+      </div>
+      <h3 class="chat-header-name">{{ contactoSeleccionado.nombre }}</h3>
+    </div>
+
+    <div class="chat-body" #chatBody>
+      <div 
+        class="chat-bubble" 
+        *ngFor="let msg of mensajes"
+        [ngClass]="msg.propio ? 'bubble-propio' : 'bubble-otro'"
+      >
+        {{ msg.texto }}
+      </div>
+    </div>
+
+    <div class="chat-footer">
+      <input 
+        type="text" 
+        class="chat-input" 
+        placeholder="Escribí un mensaje..." 
+        [(ngModel)]="nuevoMensaje"
+        (keyup.enter)="enviarMensaje()"
+      />
+      <button class="chat-send-btn" (click)="enviarMensaje()">
+        <i class="bi bi-send-fill"></i>
+      </button>
+    </div>
+
+  </ng-container>
 
 </div>

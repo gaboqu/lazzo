@@ -120,3 +120,24 @@
 .chat-send-btn:hover {
   background-color: #a86d44;
 }
+
+.chat-empty {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: #b0a89f;
+  gap: 12px;
+}
+
+.chat-empty i {
+  font-size: 3rem;
+  color: #c08256;
+}
+
+.chat-empty p {
+  font-family: var(--font-body);
+  font-size: 1rem;
+  margin: 0;
+}

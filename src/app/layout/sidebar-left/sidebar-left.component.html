@@ -92,7 +92,7 @@
     <div class="conversations-list">
       <p class="activity-title">Conversaciones</p>
 
-      <div class="conversation-item" *ngFor="let conv of conversaciones">
+      <div class="conversation-item" *ngFor="let conv of conversaciones" (click)="seleccionarConversacion(conv)">
         <div class="conversation-photo">
           <img [src]="conv.foto" [alt]="conv.nombre" />
         </div>
